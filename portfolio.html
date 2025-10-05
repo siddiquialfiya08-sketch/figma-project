@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- CRITICAL FOR MOBILE RESPONSIVENESS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Start - Our Portfolio of Work</title>
+    <!-- Load Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles to define the font and smooth scrolling */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #f7f9fb;
+        }
+        /* Defining the mint background color used in the design for the header and footer */
+        .bg-mint-header {
+            background-color: #79c9a6; 
+        }
+        .bg-mint-footer {
+            background-color: #79c9a6;
+        }
+        /* Custom color for the logo/primary text (The green color) */
+        .text-primary-brand {
+            color: #38a169; 
+        }
+        .bg-primary-brand {
+            background-color: #38a169;
+        }
+        /* Custom style for the overlay menu background on mobile */
+        .nav-overlay-bg {
+            background-color: rgba(49, 49, 49, 0.95);
+        }
+        /* Ensure the current page link is visually distinct (Portfolio is active) */
+        .nav-link.active {
+            color: #ffffff; /* Active link color for the header */
+            font-weight: 600;
+            border-bottom: 2px solid white;
+        }
+        .text-header-brand {
+            color: #ffffff; /* White text for the mint header */
+        }
+        /* Project card styles for a subtle lift effect */
+        .project-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1), 0 3px 8px -3px rgba(0, 0, 0, 0.05);
+        }
+
+    </style>
+    <!-- Load Lucide Icons for social media, navigation, and features -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="text-gray-800">
+
+    <!-- Start of Semantic Header (Navigation Bar) -->
+    <header class="bg-mint-header shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex items-center justify-between h-20" aria-label="Main Navigation">
+                
+                <!-- Logo: "Start" with icon -->
+                <a href="index.html" class="flex items-center text-3xl font-extrabold text-white transition duration-300">
+                    <!-- Custom SVG Icon replicating the image logo -->
+                    <svg class="w-8 h-8 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 22h20L12 2z" fill="#ffffff" opacity="0.3"/>
+                        <path d="M12 2L18 14H6L12 2z" fill="#ffffff"/>
+                        <path d="M12 14L15 20H9L12 14z" fill="#ffffff" opacity="0.7"/>
+                    </svg>
+                    Start
+                </a>
+
+                <!-- Desktop Navigation Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-header-brand text-lg font-medium hover:text-gray-900 transition duration-300 p-2 rounded-lg">Home</a>
+                    <!-- PORTFOLIO IS NOW ACTIVE -->
+                    <a href="portfolio.html" class="nav-link active text-white text-lg font-medium transition duration-300 p-2 rounded-lg">Portfolio</a>
+                    <a href="services.html" class="nav-link text-header-brand text-lg font-medium hover:text-gray-900 transition duration-300 p-2 rounded-lg">Services</a>
+                    <a href="contact.html" class="nav-link text-header-brand text-lg font-medium hover:text-gray-900 transition duration-300 p-2 rounded-lg">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button (Hamburger) -->
+                <button id="mobile-menu-button" class="md:hidden p-2 text-white rounded-lg hover:bg-white hover:text-gray-700 transition duration-150" aria-label="Toggle mobile menu">
+                    <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                </button>
+            </nav>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden nav-overlay-bg fixed inset-0 z-40 md:hidden transition-opacity duration-300">
+            <div class="flex flex-col items-center justify-center min-h-screen space-y-8">
+                <a href="index.html" class="text-4xl font-bold text-white hover:text-primary-brand transition duration-300" onclick="closeMobileMenu()">Home</a>
+                <a href="portfolio.html" class="text-4xl font-bold text-primary-brand transition duration-300" onclick="closeMobileMenu()">Portfolio</a>
+                <a href="services.html" class="text-4xl font-bold text-white hover:text-primary-brand transition duration-300" onclick="closeMobileMenu()">Services</a>
+                <a href="contact.html" class="text-4xl font-bold text-white hover:text-primary-brand transition duration-300" onclick="closeMobileMenu()">Contact</a>
+            </div>
+        </div>
+    </header>
+    <!-- End of Semantic Header -->
+
+    <!-- Start of Semantic Main Content -->
+    <main>
+        
+        <!-- ==================================================================== -->
+        <!-- SECTION: Portfolio Hero/Header (Text is now English) -->
+        <!-- ==================================================================== -->
+
+        <section id="portfolio-header" class="pt-16 pb-12 sm:pt-24 sm:pb-16 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <p class="text-sm font-semibold uppercase tracking-widest text-primary-brand mb-3">
+                    OUR WORK
+                </p>
+                <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4">
+                    Our Creative Portfolio
+                </h1>
+                <!-- Translated Subtitle Text -->
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Showcasing our best design, web development, and branding projects.
+                </p>
+            </div>
+        </section>
+
+        <!-- ==================================================================== -->
+        <!-- SECTION: Project Grid -->
+        <!-- ==================================================================== -->
+
+        <section id="projects" class="py-12 sm:py-20 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Project Grid (Flex-based for responsiveness) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Project Card 1 -->
+                    <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+    
+    <img 
+        src="landing page img.png" 
+        alt="Landing Page Design Example" 
+        class="w-full h-auto object-cover"
+        onerror="this.src='https://placehold.co/400x250/f7f9fb/38a169?text=Project+Image+Missing'"
+    >
+                        <div class="p-6">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-gray-500">Web Design</span>
+                            <h3 class="text-2xl font-bold text-gray-900 mt-1 mb-3">Innovative SaaS Platform</h3>
+                            <p class="text-gray-600 mb-4">A complete redesign focused on conversion optimization and modern, clean aesthetics for a software-as-a-service application.</p>
+                            <a href="#" class="text-primary-brand font-medium hover:text-green-700 flex items-center">
+                                View Case Study
+                                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2 -->
+<div class="project-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+    
+    <img 
+        src="shopping.png" 
+        alt="E-commerce Example" 
+        class="w-full h-auto object-cover"
+        onerror="this.src='https://placehold.co/400x250/f7f9fb/38a169?text=Project+Image+Missing'"
+    >
+
+                                           <div class="p-6">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-gray-500">E-commerce</span>
+                            <h3 class="text-2xl font-bold text-gray-900 mt-1 mb-3">High-Performance E-shop</h3>
+                            <p class="text-gray-600 mb-4">Developed a custom storefront with high-speed performance and seamless mobile checkout integration for a retail client.</p>
+                            <a href="#" class="text-primary-brand font-medium hover:text-green-700 flex items-center">
+                                View Case Study
+                                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3 -->
+<div class="project-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+    
+    <img 
+        src="uiux.png" 
+        alt="uI/UX Design Example" 
+        class="w-full h-auto object-cover"
+        onerror="this.src='https://placehold.co/400x250/f7f9fb/38a169?text=Project+Image+Missing'"
+
+                                            <div class="p-6">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-gray-500">UI/UX Design</span>
+                            <h3 class="text-2xl font-bold text-gray-900 mt-1 mb-3">Intuitive Mobile App UI</h3>
+                            <p class="text-gray-600 mb-4">Designed a clean, intuitive user interface for a fitness tracking application, focusing on accessibility and ease of use.</p>
+                            <a href="#" class="text-primary-brand font-medium hover:text-green-700 flex items-center">
+                                View Case Study
+                                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 4 -->
+                    <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                        <img 
+                        src="identity.png" 
+                        alt="Brand Identity Guidelines" 
+                        class="w-full h-auto object-cover">
+                        <div class="p-6">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-gray-500">Branding</span>
+                            <h3 class="text-2xl font-bold text-gray-900 mt-1 mb-3">Full Corporate Rebrand</h3>
+                            <p class="text-gray-600 mb-4">Developed a comprehensive brand identity, including logo, color palette, and voice guidelines for a B2B financial firm.</p>
+                            <a href="#" class="text-primary-brand font-medium hover:text-green-700 flex items-center">
+                                View Case Study
+                                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 5 -->
+                    <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                        <img 
+                        src="website.png"
+                        alt="Marketing Website Redesign" 
+                        class="w-full h-auto object-cover">
+                        <div class="p-6">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-gray-500">Web Development</span>
+                            <h3 class="text-2xl font-bold text-gray-900 mt-1 mb-3">Modern Marketing Website</h3>
+                            <p class="text-gray-600 mb-4">Revamped an outdated marketing site to be fully responsive and optimized for search engines, increasing organic traffic by 40%.</p>
+                            <a href="#" class="text-primary-brand font-medium hover:text-green-700 flex items-center">
+                                View Case Study
+                                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 6 -->
+                    <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                        <img src="video.png" 
+                        alt="Video Production Project" 
+                        class="w-full h-auto object-cover">
+                        <div class="p-6">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-gray-500">Content</span>
+                            <h3 class="text-2xl font-bold text-gray-900 mt-1 mb-3">Animated Explainer Video</h3>
+                            <p class="text-gray-600 mb-4">Created a 90-second animated explainer video to simplify a complex service offering for prospective clients.</p>
+                            <a href="#" class="text-primary-brand font-medium hover:text-green-700 flex items-center">
+                                View Case Study
+                                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action Button at the bottom -->
+                <div class="text-center mt-12">
+                    <a href="contact.html" class="inline-block bg-gray-800 text-white font-semibold px-8 py-4 rounded-xl shadow-xl hover:bg-gray-700 transition duration-300 transform hover:scale-105">
+                        Start Your Project with Us
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+    <!-- End of Semantic Main Content -->
+
+    <!-- Start of Semantic Footer -->
+    <footer class="bg-mint-footer py-10">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-white">
+            
+            <!-- Social Media Icons (Left Side) -->
+            <div class="flex space-x-4 mb-4 md:mb-0">
+                <a href="#" aria-label="Facebook" class="hover:text-gray-900 transition duration-200">
+                    <i data-lucide="facebook" class="w-6 h-6"></i>
+                </a>
+                <a href="#" aria-label="Instagram" class="hover:text-gray-900 transition duration-200">
+                    <i data-lucide="instagram" class="w-6 h-6"></i>
+                </a>
+                <a href="#" aria-label="Twitter" class="hover:text-gray-900 transition duration-200">
+                    <i data-lucide="twitter" class="w-6 h-6"></i>
+                </a>
+                <a href="#" aria-label="Pinterest" class="hover:text-gray-900 transition duration-200">
+                    <i data-lucide="pinterest" class="w-6 h-6"></i>
+                </a>
+                <a href="#" aria-label="TikTok" class="hover:text-gray-900 transition duration-200">
+                    <!-- Custom SVG for TikTok, as it's not in base Lucide -->
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M21 7.9c-0.2 0.1-0.4 0.1-0.7 0.1-0.8 0-1.6-0.3-2.2-0.8-0.6-0.5-1.1-1.2-1.3-2.1v-2.3c0.8 0.1 1.6 0.2 2.5 0.2 1.1 0 2.2-0.2 3.2-0.7 0-0.3 0-0.6 0-0.9 0-0.3 0-0.6-0.1-0.8 0-0.2 0-0.4-0.1-0.6-0.1-0.2-0.3-0.4-0.5-0.6-0.2-0.2-0.4-0.4-0.7-0.4-0.4-0.1-0.8-0.1-1.2-0.1-1.4 0-2.7 0.3-3.9 0.9-1.2 0.6-2.3 1.5-3.2 2.5-0.9 1-1.6 2.1-2.1 3.4-0.5 1.3-0.7 2.7-0.7 4.1s0.2 2.8 0.7 4.1c0.5 1.3 1.2 2.4 2.1 3.4 0.9 1 2 1.9 3.2 2.5 1.2 0.6 2.5 0.9 3.9 0.9 1.4 0 2.7-0.3 3.9-0.9 1.2-0.6 2.3-1.5 3.2-2.5 0.9-1 1.6-2.1 2.1-3.4 0.5-1.3 0.7-2.7 0.7-4.1s-0.2-2.8-0.7-4.1c-0.5-1.3-1.2-2.4-2.1-3.4-0.9-1-2-1.9-3.2-2.5-1.2-0.6-2.5-0.9-3.9-0.9-1.4 0-2.7 0.3-3.9 0.9-1.2 0.6-2.3 1.5-3.2 2.5-0.9 1-1.6 2.1-2.1 3.4-0.5 1.3-0.7 2.7-0.7 4.1s0.2 2.8 0.7 4.1c0.5 1.3 1.2 2.4 2.1 3.4 0.9 1 2 1.9 3.2 2.5 1.2 0.6 2.5 0.9 3.9 0.9 0.2 0 0.4 0 0.6-0.1 0.2 0 0.4-0.1 0.6-0.1 0.2-0.1 0.4-0.2 0.6-0.3 0.2-0.1 0.4-0.3 0.5-0.4 0.1-0.2 0.2-0.4 0.3-0.6 0.1-0.2 0.2-0.4 0.1-0.6s0-0.4-0.1-0.6c0-0.2 0-0.4-0.1-0.6z"/></svg>
+                </a>
+                <a href="#" aria-label="YouTube" class="hover:text-gray-900 transition duration-200">
+                    <i data-lucide="youtube" class="w-6 h-6"></i>
+                </a>
+            </div>
+            
+            <!-- Copyright (Right Side) -->
+            <p class="text-sm font-light">&copy; Start, 2025. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- End of Semantic Footer -->
+
+    <!-- JavaScript for Mobile Menu and Lucide Icons -->
+    <script>
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        function toggleMobileMenu() {
+            const isHidden = mobileMenu.classList.toggle('hidden');
+            if (isHidden) {
+                // If hidden, show Menu icon
+                menuIcon.innerHTML = lucide.createIcons()['menu'].toSvg();
+                menuButton.classList.remove('text-gray-700', 'hover:bg-gray-100');
+                menuButton.classList.add('text-white', 'hover:bg-white', 'hover:text-gray-700');
+            } else {
+                // If visible, show X icon
+                menuIcon.innerHTML = lucide.createIcons()['x'].toSvg();
+            }
+        }
+
+        function closeMobileMenu() {
+            // Close menu and reset icon
+            mobileMenu.classList.add('hidden');
+            menuIcon.innerHTML = lucide.createIcons()['menu'].toSvg();
+            menuButton.classList.remove('text-gray-700', 'hover:bg-gray-100');
+            menuButton.classList.add('text-white', 'hover:bg-white', 'hover:text-gray-700');
+        }
+
+        menuButton.addEventListener('click', toggleMobileMenu);
+
+        // Initialize Lucide icons on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
