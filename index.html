@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- CRITICAL FOR MOBILE RESPONSIVENESS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Start - Creative Agency</title>
+    <!-- Load Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles to define the font and smooth scrolling */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #f7f9fb;
+        }
+        /* Defining the mint background color used in the design for the hero and footer */
+        .bg-mint-hero {
+            background-color: #e6f7f0; 
+        }
+        .bg-mint-footer {
+            background-color: #79c9a6; /* Slightly darker mint for the footer */
+        }
+        /* Custom color for the logo/primary text (The green color) */
+        .text-primary-brand {
+            color: #38a169; 
+        }
+        .bg-primary-brand {
+            background-color: #38a169;
+        }
+        /* Custom style for the overlay menu background on mobile */
+        .nav-overlay-bg {
+            background-color: rgba(49, 49, 49, 0.95);
+        }
+        /* Ensure the current page link is visually distinct (Home is active) */
+        .nav-link.active {
+            color: #38a169;
+            font-weight: 600;
+            border-bottom: 2px solid #38a169;
+        }
+
+        /* Styling for Partner logos (grayscale effect) */
+        .logo-item {
+            filter: grayscale(100%);
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            height: 40px; /* Consistent height for logos */
+            width: auto;
+        }
+        .logo-item:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        /* Team member card styling with subtle hover effect */
+        .team-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+    <!-- Load Lucide Icons for social media, navigation, and features -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="text-gray-800">
+
+    <!-- Start of Semantic Header (Navigation Bar) -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex items-center justify-between h-20" aria-label="Main Navigation">
+                
+                <!-- Logo: "Start" with icon -->
+                <a href="index.html" class="flex items-center text-3xl font-extrabold text-primary-brand transition duration-300">
+                    <!-- Custom SVG Icon replicating the image logo -->
+                    <svg class="w-8 h-8 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 22h20L12 2z" fill="#38a169" opacity="0.3"/>
+                        <path d="M12 2L18 14H6L12 2z" fill="#38a169"/>
+                        <path d="M12 14L15 20H9L12 14z" fill="#38a169" opacity="0.7"/>
+                    </svg>
+                    Start
+                </a>
+
+                <!-- Desktop Navigation Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#hero" class="nav-link active text-lg font-medium text-gray-600 hover:text-primary-brand transition duration-300 p-2 rounded-lg">Home</a>
+                    <a href="portfolio.html" class="nav-link text-lg font-medium text-gray-600 hover:text-primary-brand transition duration-300 p-2 rounded-lg">Portfolio</a>
+                    <a href="services.html" class="nav-link text-lg font-medium text-gray-600 hover:text-primary-brand transition duration-300 p-2 rounded-lg">Services</a>
+                    <a href="contact.html" class="nav-link text-lg font-medium text-gray-600 hover:text-primary-brand transition duration-300 p-2 rounded-lg">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button (Hamburger) -->
+                <button id="mobile-menu-button" class="md:hidden p-2 text-gray-700 rounded-lg hover:bg-gray-100 transition duration-150" aria-label="Toggle mobile menu">
+                    <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                </button>
+            </nav>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden nav-overlay-bg fixed inset-0 z-40 md:hidden transition-opacity duration-300">
+            <div class="flex flex-col items-center justify-center min-h-screen space-y-8">
+                <a href="#hero" class="text-4xl font-bold text-primary-brand transition duration-300" onclick="closeMobileMenu()">Home</a>
+                <a href="portfolio.html" class="text-4xl font-bold text-white hover:text-primary-brand transition duration-300" onclick="closeMobileMenu()">Portfolio</a>
+                <a href="services.html" class="text-4xl font-bold text-white hover:text-primary-brand transition duration-300" onclick="closeMobileMenu()">Services</a>
+                <a href="contact.html" class="text-4xl font-bold text-white hover:text-primary-brand transition duration-300" onclick="closeMobileMenu()">Contact</a>
+            </div>
+        </div>
+    </header>
+    <!-- End of Semantic Header -->
+
+    <!-- Start of Semantic Main Content -->
+    <main>
+        
+        <!-- ==================================================================== -->
+        <!-- SECTION 1 (Image 1): Hero and Partners -->
+        <!-- ==================================================================== -->
+
+        <section id="hero" class="bg-mint-hero pt-20 pb-20 sm:py-32">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                    
+                    <!-- Text Content (Image 1, Left Side) -->
+                    <div class="text-center lg:text-left">
+                        <p class="text-sm font-semibold uppercase tracking-widest text-primary-brand mb-4">
+                            WELCOME
+                        </p>
+                        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
+                            Design the Future Together
+                        </h1>
+                        <p class="text-lg text-gray-700 max-w-xl mx-auto lg:mx-0 mb-10">
+                            We are a creative digital agency dedicated to building unique, responsive, and high-performing web solutions.
+                        </p>
+                        
+                        <a href="contact.html" class="inline-block bg-white text-gray-900 text-lg font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl hover:bg-gray-50 transition duration-300 ease-in-out transform hover:scale-[1.02]">
+                            Explore
+                        </a>
+                    </div>
+                    
+                    <!-- Image Content (Image 1, Right Side) -->
+                    <div class="order-first lg:order-last">
+                        <!-- 
+                            *** IMAGE PLACEMENT 1: HERO ILLUSTRATION (Image 1) ***
+                            This image is the one showing the people around the lightbulb/gear icon.
+                        -->
+                        <img 
+                            src="hero.png"
+                            alt="Team collaborating on a new idea" 
+                            class="w-full h-auto max-w-lg mx-auto rounded-xl shadow-lg object-cover"
+                            onerror="this.src='https://placehold.co/600x400/38a169/ffffff?text=Hero+Image+Missing'"
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners/Clients Logo Section (Image 1) -->
+        <section id="partners" class="py-16 sm:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <p class="text-sm font-semibold uppercase tracking-widest text-primary-brand mb-3">
+                        PARTNERS
+                    </p>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                        Trusted By Leading Companies
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                        Our commitment to quality has earned the trust of industry leaders worldwide.
+                    </p>
+                </div>
+                
+                <!-- Logo Grid (6 logos, responsive layout) -->
+                <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-12 max-w-5xl mx-auto">
+                    
+                    <!-- 
+                        *** IMAGE PLACEMENT 2: PARTNER/CLIENT LOGOS (Image 1) ***
+                        These should be high-quality SVG or PNG logos for client recognition.
+                    -->
+                    <img src=google.svg alt="Google Logo" class="logo-item">
+                    <img src="microsoft.svg" alt="Microsoft Logo" class="logo-item">
+                    <img src="airbnb.svg" alt="Airbnb Logo" class="logo-item">
+                    <img src="facebook.svg" alt="Facebook Logo" class="logo-item">
+                    <img src="spotify.svg" alt="Spotify Logo" class="logo-item">
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================================================================== -->
+        <!-- SECTION 2 (Image 2 - Moved Up): Feature Blocks (Seamless Comm & Data Security) -->
+        <!-- ==================================================================== -->
+
+        <section id="features" class="py-16 sm:py-24 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Feature Block 1: Seamless Communication (Image 2, Top Left) -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
+                    
+                    <!-- Image Content -->
+                    <div class="order-2 lg:order-1">
+                        <!-- 
+                            *** IMAGE PLACEMENT 3: CONVERSATION FEATURE (Image 2) ***
+                            The illustration showing people communicating with envelopes and chat bubbles.
+                        -->
+                        <img 
+                            src="https://placehold.co/600x400/f0f9ff/000000?text=COMMUNICATION+FEATURE" 
+                            alt="Illustration of seamless communication" 
+                            class="w-full h-auto max-w-xl mx-auto rounded-xl"
+                            onerror="this.src='https://placehold.co/600x400/f0f9ff/000000?text=COMMUNICATION+FEATURE'"
+                        >
+                    </div>
+
+                    <!-- Text Content -->
+                    <div class="text-center lg:text-left order-1 lg:order-2">
+                        <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-snug">
+                            Seamless Communication
+                        </h3>
+                        <p class="text-lg text-gray-700 max-w-xl mx-auto lg:mx-0 mb-8">
+                            Connect instantly with your clients and team using our integrated platform for faster project delivery.
+                        </p>
+                        <a href="contact.html" class="inline-block bg-primary-brand text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:bg-green-700 transition duration-300">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Feature Block 2: Robust Data Security (Image 2, Bottom Right) -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    
+                    <!-- Text Content -->
+                    <div class="text-center lg:text-left">
+                        <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-snug">
+                            Robust Data Security
+                        </h3>
+                        <p class="text-lg text-gray-700 max-w-xl mx-auto lg:mx-0 mb-8">
+                            We prioritize your privacy and data protection with state-of-the-art encryption and security protocols.
+                        </p>
+                        <a href="contact.html" class="inline-block bg-primary-brand text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:bg-green-700 transition duration-300">
+                            Learn More
+                        </a>
+                    </div>
+                    
+                    <!-- Image Content -->
+                    <div class="order-first lg:order-last">
+                        <!-- 
+                            *** IMAGE PLACEMENT 4: SECURITY FEATURE (Image 2) ***
+                            The illustration showing cloud storage, a lock, and a person working on a laptop.
+                        -->
+                        <img 
+                            src="https://placehold.co/600x400/e0f0ff/000000?text=SECURITY+FEATURE" 
+                            alt="Illustration of robust data security and cloud features" 
+                            class="w-full h-auto max-w-xl mx-auto rounded-xl"
+                            onerror="this.src='https://placehold.co/600x400/e0f0ff/000000?text=SECURITY+FEATURE'"
+                        >
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================================================================== -->
+        <!-- SECTION 3 (Image 3 - Moved Down): Team Section -->
+        <!-- ==================================================================== -->
+
+        <section id="team" class="py-16 sm:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <p class="text-sm font-semibold uppercase tracking-widest text-primary-brand mb-3">
+                        TEAM
+                    </p>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                        Meet Our Talented Team
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Our diverse team of experts is dedicated to delivering exceptional results for every client.
+                    </p>
+                </div>
+
+                <!-- Team Members Grid (4 Columns on Desktop, responsive stack) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mb-12">
+                    
+                    <!-- Team Member Card 1 -->
+                   <div class="team-card bg-white p-6 rounded-2xl shadow-lg text-center">
+    <div class="relative w-36 h-36 mx-auto mb-4">
+        <img 
+            src="peg Legge.png"
+            alt="Peg Legge, CEO" 
+            class="w-full h-full rounded-full border-4 border-gray-100 object-cover"
+            onerror="this.src='https://placehold.co/150x150/ffffff/38a169?text=Peg+Legge'"
+        >
+    </div>
+    <h3 class="text-xl font-semibold text-gray-900">Peg Legge</h3>
+    <p class="text-sm font-medium uppercase tracking-wider text-primary-brand mt-1">CEO</p>
+</div>
+
+                    <!-- Team Member Card 2 -->
+                 
+
+<div class="team-card bg-white p-6 rounded-2xl shadow-lg text-center">
+    <div class="relative w-36 h-36 mx-auto mb-4">
+        <img 
+            src="Richard Guerra.png" 
+            alt="Richard Guerra, CTO" 
+            class="w-full h-full rounded-full border-4 border-gray-100 object-cover"
+            onerror="this.src='https://placehold.co/150x150/ffffff/38a169?text=Richard+Guerra'"
+        >
+    </div>
+    <h3 class="text-xl font-semibold text-gray-900">Richard Guerra</h3>
+    <p class="text-sm font-medium uppercase tracking-wider text-primary-brand mt-1">CTO</p>
+</div>
+                    <!-- Team Member Card 3 -->
+                   <div class="team-card bg-white p-6 rounded-2xl shadow-lg text-center">
+    <div class="relative w-36 h-36 mx-auto mb-4">
+        <img 
+            src="Alexandar Stolz.png"
+            alt="Alexandra Stolz, Designer" 
+            class="w-full h-full rounded-full border-4 border-gray-100 object-cover"
+            onerror="this.src='https://placehold.co/150x150/ffffff/38a169?text=Alexandar+Stolz'"
+        >
+    </div>
+    <h3 class="text-xl font-semibold text-gray-900">Alexandra Stolz</h3>
+    <p class="text-sm font-medium uppercase tracking-wider text-primary-brand mt-1">Designer</p>
+</div>
+                    <!-- Team Member Card 4 -->
+                   <div class="team-card bg-white p-6 rounded-2xl shadow-lg text-center">
+    <div class="relative w-36 h-36 mx-auto mb-4">
+        <img 
+            src="Janet Bray.png"
+            alt="Janet Bray, Developer" 
+            class="w-full h-full rounded-full border-4 border-gray-100 object-cover"
+            onerror="this.src='https://placehold.co/150x150/ffffff/38a169?text=Janet+Bray'"
+        >
+    </div>
+    <h3 class="text-xl font-semibold text-gray-900">Janet Bray</h3>
+    <p class="text-sm font-medium uppercase tracking-wider text-primary-brand mt-1">DEVELOPER</p>
+</div>
+
+
+                
+                <!-- CTA Button -->
+                <div class="text-center">
+                    <a href="contact.html" class="inline-block bg-gray-800 text-white text-lg font-semibold px-10 py-4 rounded-xl shadow-xl hover:bg-gray-700 transition duration-300 ease-in-out transform hover:scale-[1.02]">
+                        View Team
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <!-- End of Semantic Main Content -->
+
+    <!-- Start of Semantic Footer (Reuses style from Image 3 Footer) -->
+    <footer class="bg-mint-footer py-10">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-white">
+            
+            <!-- Social Media Icons (Left Side) -->
+            <div class="flex space-x-4 mb-4 md:mb-0">
+                <a href="#" aria-label="Facebook" class="hover:text-gray-900 transition duration-200">
+                    <i data-lucide="facebook" class="w-6 h-6"></i>
+                </a>
+                <a href="#" aria-label="Instagram" class="hover:text-gray-900 transition duration-200">
+                    <i data-lucide="instagram" class="w-6 h-6"></i>
+                </a>
+                <a href="#" aria-label="Twitter" class="hover:text-gray-900 transition duration-200">
+                    <i data-lucide="twitter" class="w-6 h-6"></i>
+                </a>
+                <a href="#" aria-label="Pinterest" class="hover:text-gray-900 transition duration-200">
+                    <i data-lucide="pinterest" class="w-6 h-6"></i>
+                </a>
+                <a href="#" aria-label="TikTok" class="hover:text-gray-900 transition duration-200">
+                    <!-- Custom SVG for TikTok, as it's not in base Lucide -->
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M21 7.9c-0.2 0.1-0.4 0.1-0.7 0.1-0.8 0-1.6-0.3-2.2-0.8-0.6-0.5-1.1-1.2-1.3-2.1v-2.3c0.8 0.1 1.6 0.2 2.5 0.2 1.1 0 2.2-0.2 3.2-0.7 0-0.3 0-0.6 0-0.9 0-0.3 0-0.6-0.1-0.8 0-0.2 0-0.4-0.1-0.6-0.1-0.2-0.3-0.4-0.5-0.6-0.2-0.2-0.4-0.4-0.7-0.4-0.4-0.1-0.8-0.1-1.2-0.1-1.4 0-2.7 0.3-3.9 0.9-1.2 0.6-2.3 1.5-3.2 2.5-0.9 1-1.6 2.1-2.1 3.4-0.5 1.3-0.7 2.7-0.7 4.1s0.2 2.8 0.7 4.1c0.5 1.3 1.2 2.4 2.1 3.4 0.9 1 2 1.9 3.2 2.5 1.2 0.6 2.5 0.9 3.9 0.9 1.4 0 2.7-0.3 3.9-0.9 1.2-0.6 2.3-1.5 3.2-2.5 0.9-1 1.6-2.1 2.1-3.4 0.5-1.3 0.7-2.7 0.7-4.1s-0.2-2.8-0.7-4.1c-0.5-1.3-1.2-2.4-2.1-3.4-0.9-1-2-1.9-3.2-2.5-1.2-0.6-2.5-0.9-3.9-0.9-1.4 0-2.7 0.3-3.9 0.9-1.2 0.6-2.3 1.5-3.2 2.5-0.9 1-1.6 2.1-2.1 3.4-0.5 1.3-0.7 2.7-0.7 4.1s0.2 2.8 0.7 4.1c0.5 1.3 1.2 2.4 2.1 3.4 0.9 1 2 1.9 3.2 2.5 1.2 0.6 2.5 0.9 3.9 0.9 0.2 0 0.4 0 0.6-0.1 0.2 0 0.4-0.1 0.6-0.1 0.2-0.1 0.4-0.2 0.6-0.3 0.2-0.1 0.4-0.3 0.5-0.4 0.1-0.2 0.2-0.4 0.3-0.6 0.1-0.2 0.2-0.4 0.1-0.6s0-0.4-0.1-0.6c0-0.2 0-0.4-0.1-0.6z"/></svg>
+                </a>
+                <a href="#" aria-label="YouTube" class="hover:text-gray-900 transition duration-200">
+                    <i data-lucide="youtube" class="w-6 h-6"></i>
+                </a>
+            </div>
+            
+            <!-- Copyright (Right Side) -->
+            <p class="text-sm font-light">&copy; Start, 2025. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- End of Semantic Footer -->
+
+    <!-- JavaScript for Mobile Menu and Lucide Icons -->
+    <script>
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        function toggleMobileMenu() {
+            const isHidden = mobileMenu.classList.toggle('hidden');
+            if (isHidden) {
+                // If hidden, show Menu icon
+                menuIcon.innerHTML = lucide.createIcons()['menu'].toSvg();
+            } else {
+                // If visible, show X icon
+                menuIcon.innerHTML = lucide.createIcons()['x'].toSvg();
+            }
+        }
+
+        function closeMobileMenu() {
+            // Close menu and reset icon
+            mobileMenu.classList.add('hidden');
+            menuIcon.innerHTML = lucide.createIcons()['menu'].toSvg();
+        }
+
+        menuButton.addEventListener('click', toggleMobileMenu);
+
+        // Initialize Lucide icons on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
